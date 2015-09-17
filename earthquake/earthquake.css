@@ -94,31 +94,38 @@
 }
 
 .ng-hide-add {
-  animation: 1s fadeOutDown ease;
+  animation: .5s fadeOut ease;
 }
 
 .ng-hide-remove {
   animation: 1s fadeInUp ease;
 }
 
-/*.card-wrapper.ng-move,
-.card-wrapper.ng-enter,
-.card-wrapper.ng-leave {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
+.repeat-animate {
+  max-height: 84px;
 }
 
-.card-wrapper.ng-leave.ng-leave-active,
-.card-wrapper.ng-move,
-.card-wrapper.ng-enter {
-  opacity:0;
-  max-height:0;
+/*.repeat-animate.ng-move,
+.repeat-animate.ng-enter,*/
+.repeat-animate.ng-leave {
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  overflow: hidden;
 }
 
+.repeat-animate.ng-leave.ng-leave-active,
+.repeat-animate.ng-move,
+.repeat-animate.ng-enter {
+  opacity: 0;
+  max-height: 0;
+}
 
-.card-wrapper.ng-leave,
-.card-wrapper.ng-move.ng-move-active,
-.card-wrapper.ng-enter.ng-enter-active {
+/*
+.repeat-animate.ng-leave,
+.repeat-animate.ng-move.ng-move-active,
+.repeat-animate.ng-enter.ng-enter-active {
  opacity:1;
- max-height:40px;
+
 }*/
