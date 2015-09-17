@@ -18,6 +18,7 @@ function EarthquakeFactory ($http, $q) {
       earthquakes.item.forEach(function(elem, index) {
         FormatTitleAndMagnitude(elem);
         FormateDate(elem);
+        FormatImg(elem);
       });
 
       deferred.resolve(earthquakes);
@@ -47,4 +48,13 @@ function FormatTitleAndMagnitude (elem) {
 
 function FormateDate (elem) {
   elem.pubDate = new Date(elem.pubDate);
+}
+
+function FormatImg (elem) {
+  var split = elem.description.split(' ')[1];
+  split = split.split('\"')[1];
+
+  elem.img = elem.link + 'download/intensity.jpg';
+
+  console.log(elem.img);
 }

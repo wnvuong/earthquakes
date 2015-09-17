@@ -36,7 +36,7 @@
   font-weight: 700;
   font-size: 12px;
   color: #757575;
-  margin-top: 15px;
+  margin-top: 30px;
   margin-bottom: 0;
   padding: 20px;
 }
@@ -96,11 +96,11 @@
 }
 
 .ng-hide-add {
-  animation: .5s fadeOut ease;
+  animation: 1s fadeOutDown ease-in-out;
 }
 
 .ng-hide-remove {
-  animation: 1s fadeInUp ease;
+  animation: 1s fadeInUp ease-in-out;
 }
 
 .repeat-animate {
