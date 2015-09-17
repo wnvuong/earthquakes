@@ -1,0 +1,124 @@
+.custom-container {
+
+}
+
+/* Custom Table */
+.custom-table td {
+  border-radius: 0;
+}
+.custom-table>tbody>tr:hover {
+  -webkit-box-shadow: 0px 0px 24px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    0px 0px 24px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 0px 24px 0px rgba(50, 50, 50, 0.75);
+}
+
+.row-header {
+  padding-top: 20px;
+}
+
+.custom-header {
+  margin-top: 15px;
+  font-size: 3.5vw;
+}
+
+.custom-subheader {
+  font-weight: 100;
+  font-size: 3.5vw;
+  font-style: italic;
+}
+
+.custom-row {
+  margin-bottom: 0;
+}
+
+.custom-header-row {
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 0;
+  padding: 20px;
+}
+
+.col-data {
+  min-height: 36px;
+}
+
+.custom-card-panel {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  cursor: pointer;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0;
+  margin-top: -1px;
+  position: relative;
+
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.custom-card-panel:hover {
+  z-index: 1;
+  -webkit-box-shadow: 0px 5px 17px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    0px 5px 17px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 5px 17px 0px rgba(50, 50, 50, 0.75);
+  -webkit-transform:  translate(0,-3px);
+  -moz-transform:     translate(0,-3px);
+  -ms-transform:      translate(0,-3px);
+  transform:          translate(0,-3px);
+}
+
+.earthquake-delete {
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.units {
+  font-weight: 300;
+}
+
+.magnitude-five {
+  background-color: #ffebee;
+}
+
+.magnitude-seven {
+  background-color: #EF5350;
+  color: white;
+}
+
+.ng-hide-add {
+  animation: 1s fadeOutDown ease;
+}
+
+.ng-hide-remove {
+  animation: 1s fadeInUp ease;
+}
+
+/*.card-wrapper.ng-move,
+.card-wrapper.ng-enter,
+.card-wrapper.ng-leave {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.card-wrapper.ng-leave.ng-leave-active,
+.card-wrapper.ng-move,
+.card-wrapper.ng-enter {
+  opacity:0;
+  max-height:0;
+}
+
+
+.card-wrapper.ng-leave,
+.card-wrapper.ng-move.ng-move-active,
+.card-wrapper.ng-enter.ng-enter-active {
+ opacity:1;
+ max-height:40px;
+}*/

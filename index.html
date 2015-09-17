@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="earthquakeApp" lang="en">
+  <head>
+    <title>Assignment 2</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,700,300,300italic' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="navbar/navbar.css">
+    <link rel="stylesheet" href="earthquake/earthquake.css">
+
+    <!-- JS -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-animate.min.js"></script>
+    <script src="common/app.js"></script>
+    <script src="navbar/navbar.js"></script>
+    <script src="earthquake/earthquake.js"></script>
+    <script src="earthquake/services/earthquakeFactory.js"></script>
+    <script src="earthquake/directives/earthquakeStatusColor.js"></script>
+    <script src="earthquake/directives/earthquakeHoverDelete.js"></script>
+  </head>
+  <body>
+    <div class="" ng-include="'navbar/navbar.html'">
+    </div>
+    <div ng-view=""></div>
+  </body>
+</html>

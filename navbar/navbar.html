@@ -1,0 +1,15 @@
+<div ng-controller="NavController">
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper custom-nav-wrapper blue darken-3">
+        <a href="#/" class=""><span class="custom-nav-header">USGS Earthquakes</span></a>
+        <ul id="nav-mobile" class="right ">
+          <li><a ng-click="reload()" class="waves-effect waves-teal" href="#/">{{refreshText}}</i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="progress custom-progress" ng-show="isLoading">
+    <div class="indeterminate"></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.custom-nav-header {
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.custom-nav-wrapper {
+  padding-left: 12px;
+}
+
+.custom-progress {
+  position: fixed;
+  margin: 0;
+  margin-top:-4px;
+  z-index: 999;
+}

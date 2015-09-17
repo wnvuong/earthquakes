@@ -1,0 +1,99 @@
+<div class="container custom-container">
+  <!-- <div class="row row-header">
+    <div class="col s6">
+      <div class="custom-header">
+        USGS Earthquakes
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="custom-subheader right-align">
+        Last 30 days
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="row" ng-show="earthquakes.item.length == 0">
+    <div class="col s12">
+      <div class="custom-header">Loading</div>
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
+  </div> -->
+  <div ng-show="!isLoading">
+    <div class="row custom-header-row">
+      <div class="col s10 offset-s1">
+        <div class="row custom-row">
+          <div class="col s3 m5">
+            Title
+          </div>
+          <div class="col s3 m2">
+            Latitude
+          </div>
+          <div class="col s3 m2">
+            Longitude
+          </div>
+          <div class="col s3">
+            Date/Time
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row custom-row" id="earthquake-{{$index}}-wrapper" ng-repeat="earthquake in earthquakes.item">
+      <div class="col s10 offset-s1 card-wrapper hide-on-small-only" >
+        <div ng-click="openEarthquake(earthquake)" id="earthquake-{{$index}}" class="card-panel custom-card-panel" earthquake-status-color="{{earthquake.magnitude}}">
+          <div class="row custom-row">
+            <div class="col s3 m5 col-data valign-wrapper">
+              <div class="valign">{{earthquake.title}}</div>
+            </div>
+            <div class="col s3 m2 col-data valign-wrapper">
+              <div class="valign">{{earthquake.lat}}</div>
+            </div>
+            <div class="col s3 m2 col-data valign-wrapper">
+              <div class="valign">{{earthquake.long}}</div>
+            </div>
+            <div class="col m3 col-data valign-wrapper">
+              <div class="valign">
+                <span>{{earthquake.pubDate.toLocaleDateString()}}</span>
+                <span class="hide-on-large-only"><br></span>
+                <span class="hide-on-med-and-down">,</span>
+                <span style="white-space:nowrap">{{earthquake.pubDate.toLocaleTimeString()}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s1 valign-wrapper" style="height: 84px">
+        <div class="valign">
+          <a ng-click="deleteEarthquake(earthquake)" earthquake-hover-delete="#earthquake-{{$index}}" class="btn-floating btn waves-effect waves-light red earthquake-delete"><i class="material-icons">delete</i></a>
+        </div>
+
+          <!-- <a class="waves-effect btn"><i class="material-icons">delete</i></a> -->
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col s12">
+      <table class="custom-table">
+        <thead>
+          <tr>
+              <th data-field="magnitude">Magnitude</th>
+              <th data-field="id">Title</th>
+              <th data-field="latitude">Latitude <span class="units">°N</span></th>
+              <th data-field="longitude">Longitude <span class="units">°E</span></th>
+              <th data-field="time">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="earthquake in earthquakes.item" earthquake-status-color="{{earthquake.magnitude}}">
+            <td>{{earthquake.magnitude}}</td>
+            <td>{{earthquake.title}}</td>
+            <td>{{earthquake.lat}}</td>
+            <td>{{earthquake.long}}</td>
+            <td>{{earthquake.pubDate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> -->
+
+</div>
