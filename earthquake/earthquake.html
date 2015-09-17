@@ -20,7 +20,7 @@
     </div>
   </div> -->
   <div ng-show="!isLoading">
-    <div class="row custom-header-row">
+    <div class="row custom-header-row hide-on-small-only">
       <div class="col s10 offset-s1">
         <div class="row custom-row">
           <div class="col s3 m5">
@@ -38,8 +38,8 @@
         </div>
       </div>
     </div>
-    <div class="row custom-row repeat-animate" id="earthquake-{{$index}}-wrapper" ng-repeat="earthquake in earthquakes.item">
-      <div class="col s10 offset-s1 card-wrapper hide-on-small-only" >
+    <div class="row custom-row repeat-animate hide-on-small-only" id="earthquake-{{$index}}-wrapper" ng-repeat="earthquake in earthquakes.item">
+      <div class="col s10 offset-s1 card-wrapper" >
         <div ng-click="openEarthquake(earthquake)" id="earthquake-{{$index}}" class="card-panel custom-card-panel" earthquake-status-color="{{earthquake.magnitude}}">
           <div class="row custom-row">
             <div class="col s3 m5 col-data valign-wrapper">
@@ -62,7 +62,7 @@
           </div>
         </div>
       </div>
-      <div class="col s1 valign-wrapper" style="height: 84px">
+      <div class="col s1 valign-wrapper" style="height: 76px">
         <div class="valign">
           <a ng-click="deleteEarthquake(earthquake)" earthquake-hover-delete="#earthquake-{{$index}}" class="btn-floating btn waves-effect waves-light red earthquake-delete"><i class="material-icons">delete</i></a>
         </div>

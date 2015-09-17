@@ -32,8 +32,10 @@
 }
 
 .custom-header-row {
-  font-weight: 400;
-  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  color: #757575;
   margin-top: 15px;
   margin-bottom: 0;
   padding: 20px;
@@ -74,10 +76,10 @@
 }
 
 .earthquake-delete {
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all .1s ease-in-out;
+  -moz-transition: all .1s ease-in-out;
+  -o-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .units {
@@ -118,7 +120,7 @@
 .repeat-animate.ng-leave.ng-leave-active,
 .repeat-animate.ng-move,
 .repeat-animate.ng-enter {
-  opacity: 0;
+  /*opacity: 0;*/
   max-height: 0;
 }
 
