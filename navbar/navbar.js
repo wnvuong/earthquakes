@@ -7,6 +7,9 @@ function NavController ($scope, $rootScope) {
   };
 
   $scope.reload = function() {
+    if ($scope.isLoading) {
+      return;
+    }
     $scope.refreshText = refreshStringConstants.loading;
     $scope.isLoading = true;
 

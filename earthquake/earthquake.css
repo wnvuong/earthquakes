@@ -32,9 +32,11 @@
 }
 
 .custom-header-row {
-  font-weight: 400;
-  font-size: 20px;
-  margin-top: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  color: #757575;
+  margin-top: 30px;
   margin-bottom: 0;
   padding: 20px;
 }
@@ -74,10 +76,10 @@
 }
 
 .earthquake-delete {
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all .1s ease-in-out;
+  -moz-transition: all .1s ease-in-out;
+  -o-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .units {
@@ -94,31 +96,55 @@
 }
 
 .ng-hide-add {
-  animation: 1s fadeOutDown ease;
+  animation: 1s fadeOutDown ease-in-out;
 }
 
 .ng-hide-remove {
-  animation: 1s fadeInUp ease;
+  animation: 1s fadeInUp ease-in-out;
 }
 
-/*.card-wrapper.ng-move,
-.card-wrapper.ng-enter,
-.card-wrapper.ng-leave {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
+.repeat-animate {
+  max-height: 84px;
 }
 
-.card-wrapper.ng-leave.ng-leave-active,
-.card-wrapper.ng-move,
-.card-wrapper.ng-enter {
-  opacity:0;
-  max-height:0;
+.repeat-animate-mobile {
+  /*max-height: 600px;*/
+  overflow: hidden;
 }
 
+/*.repeat-animate.ng-move,
+.repeat-animate.ng-enter,*/
+.repeat-animate.ng-leave
+/*.repeat-animate-mobile.ng-leave*/
+ {
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  overflow: hidden;
+}
 
-.card-wrapper.ng-leave,
-.card-wrapper.ng-move.ng-move-active,
-.card-wrapper.ng-enter.ng-enter-active {
+.repeat-animate.ng-leave.ng-leave-active,
+.repeat-animate.ng-move,
+.repeat-animate.ng-enter {
+  max-height: 0;
+}
+
+.repeat-animate-mobile.ng-leave.ng-leave-active,
+.repeat-animate-mobile.ng-move,
+.repeat-animate-mobile.ng-enter {
+  /*max-height: 0;*/
+  /*margin-bottom: 0;*/
+
+  /*-webkit-transform:  translate(380px,0);
+  -moz-transform:     translate(380px,0);
+  -ms-transform:      translate(380px,0);
+  transform:          translate(380px,0);*/
+}
+/*
+.repeat-animate.ng-leave,
+.repeat-animate.ng-move.ng-move-active,
+.repeat-animate.ng-enter.ng-enter-active {
  opacity:1;
- max-height:40px;
+
 }*/
