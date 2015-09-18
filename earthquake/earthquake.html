@@ -83,9 +83,13 @@
                 </div>
               </div>
             </div>
-            <div class="card-action">
-              <a ng-click="openEarthquake(earthquake)" href="">Learn More</a>
-              <a ng-click="deleteEarthquake(earthquake, true)" href="" class="red-text ">Delete</a>
+            <div class="card-action" style="height: 75px;">
+              <div class="col s6">
+                <a ng-click="openEarthquake(earthquake)" href="" class="btn teal white-text waves-effect waves-light ">More</a>
+              </div>
+              <div class="col s6">
+                <a ng-click="deleteEarthquake(earthquake, false)" href="" class="btn red white-text waves-effect waves-light ">Delete</a>
+              </div>
             </div>
           </div>
         </div>
