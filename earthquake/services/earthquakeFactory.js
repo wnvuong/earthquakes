@@ -1,8 +1,8 @@
 var earthquakeApp = angular.module('earthquakeApp');
 
-earthquakeApp.factory('earthquakeFactory', ['$http', '$q', EarthquakeFactory]);
+earthquakeApp.factory('earthquakeFactory', ['$http', '$q', '$timeout', EarthquakeFactory]);
 
-function EarthquakeFactory ($http, $q) {
+function EarthquakeFactory ($http, $q, $timeout) {
 
   var usgsURL = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%3D'http%3A%2F%2Fearthquake.usgs.gov%2Fearthquakes%2Fshakemap%2Frss.xml'&format=json&callback=";
 
@@ -16,6 +16,7 @@ function EarthquakeFactory ($http, $q) {
       earthquakes = res.data.query.results.rss.channel;
 
       earthquakes.item.forEach(function(elem, index) {
+        elem.isDeleting = false;
         FormatTitleAndMagnitude(elem);
         FormateDate(elem);
         FormatImg(elem);
@@ -28,13 +29,17 @@ function EarthquakeFactory ($http, $q) {
   }
 
   earthquakeFactory.deleteEarthquake = function(earthquake) {
-    var index = earthquakes.item.indexOf(earthquake);
-    if (index > -1) {
-      earthquakes.item.splice(index, 1);
-    }
+    earthquake.isDeleting = true;
+    $timeout(function() {
+      var index = earthquakes.item.indexOf(earthquake);
+      if (index > -1) {
+        earthquakes.item.splice(index, 1);
+      }
+    }, 1000);
 
     return earthquakes;
   }
+
 
   return earthquakeFactory;
 }
@@ -55,6 +60,4 @@ function FormatImg (elem) {
   split = split.split('\"')[1];
 
   elem.img = elem.link + 'download/intensity.jpg';
-
-  console.log(elem.img);
 }
