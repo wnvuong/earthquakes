@@ -10,11 +10,18 @@ earthquakeApp.directive('earthquakeHoverDelete', function($timeout) {
           } else {
             element.css('pointer-events', 'none');
             element.css('opacity', 0);
-            
+
           }
         },
         post: function (scope, element, attrs) {
           $timeout(function() {
+
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+              // You are in mobile browser
+            } else {
+              $(attrs.earthquakeHoverDelete).addClass('custom-card-panel-desktop');
+            }
+            
             $(attrs.earthquakeHoverDelete).hover(function() {
               element.css('pointer-events', 'auto');
               element.css('opacity', 1);
