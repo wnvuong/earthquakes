@@ -5,8 +5,13 @@ earthquakeApp.directive('earthquakeHoverDelete', function($timeout) {
     compile: function(element, attrs) {
       return {
         pre: function (scope, element, attrs) {
-          element.css('pointer-events', 'none');
-          element.css('opacity', 0);
+          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            // You are in mobile browser
+          } else {
+            element.css('pointer-events', 'none');
+            element.css('opacity', 0);
+            
+          }
         },
         post: function (scope, element, attrs) {
           $timeout(function() {

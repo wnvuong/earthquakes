@@ -18,8 +18,8 @@ function MainController ($scope, $rootScope, $timeout, $window, earthquakeFactor
     $window.open(earthquake.link, '_blank');
   }
 
-  $scope.deleteEarthquake = function(earthquake) {
-    $scope.earthquakes = earthquakeFactory.deleteEarthquake(earthquake);
+  $scope.deleteEarthquake = function(earthquake, delay) {
+    $scope.earthquakes = earthquakeFactory.deleteEarthquake(earthquake, delay);
   }
 
   $scope.$on('loadEarthquakes', function(event, args) {

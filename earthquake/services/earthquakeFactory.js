@@ -28,14 +28,20 @@ function EarthquakeFactory ($http, $q, $timeout) {
     return deferred.promise;
   }
 
-  earthquakeFactory.deleteEarthquake = function(earthquake) {
+  earthquakeFactory.deleteEarthquake = function(earthquake, delay) {
     earthquake.isDeleting = true;
+    var timeDelay;
+    if (delay) {
+      timeDelay = 1000;
+    } else {
+      timeDelay = 0;
+    }
     $timeout(function() {
       var index = earthquakes.item.indexOf(earthquake);
       if (index > -1) {
         earthquakes.item.splice(index, 1);
       }
-    }, 1000);
+    }, timeDelay);
 
     return earthquakes;
   }
