@@ -1,7 +1,6 @@
 <div class="container custom-container">
-  <div ng-show="!isLoading">
-    <!-- Desktop/Tablet View -->
-    <div class="row custom-header-row hide-on-small-only">
+  <div ng-show="earthquakes.success">
+    <div class="row custom-header-row hide-on-med-and-down">
       <div class="col s10 offset-s1">
         <div class="row custom-row">
           <div class="col s3 m5">
@@ -19,81 +18,79 @@
         </div>
       </div>
     </div>
-    <div class="row custom-row repeat-animate hide-on-small-only" id="earthquake-{{$index}}-wrapper" ng-repeat="earthquake in earthquakes.item">
-      <div class="col s10 offset-s1 card-wrapper" >
-        <div ng-click="openEarthquake(earthquake)" id="earthquake-{{$index}}" class="card-panel custom-card-panel" earthquake-status-color="{{earthquake.magnitude}}">
-          <div class="row custom-row">
-            <div class="col s3 m5 col-data valign-wrapper">
-              <div class="valign">{{earthquake.title}}</div>
-            </div>
-            <div class="col s3 m2 col-data valign-wrapper">
-              <div class="valign">{{earthquake.lat}}</div>
-            </div>
-            <div class="col s3 m2 col-data valign-wrapper">
-              <div class="valign">{{earthquake.long}}</div>
-            </div>
-            <div class="col m3 col-data valign-wrapper">
-              <div class="valign">
-                <span>{{earthquake.pubDate.toLocaleDateString()}}</span>
-                <span class="hide-on-large-only"><br></span>
-                <span class="hide-on-med-and-down">,</span>
-                <span style="white-space:nowrap">{{earthquake.pubDate.toLocaleTimeString()}}</span>
+    <div class="row custom-row repeat-animate " id="earthquake-{{$index}}-wrapper" ng-repeat="earthquake in earthquakes.item">
+      <div class="hide-on-med-and-down">
+
+        <div class="col s10 offset-s1 card-wrapper" >
+          <div ng-click="openEarthquake(earthquake)" id="earthquake-{{$index}}" class="card-panel custom-card-panel" earthquake-status-color="{{earthquake.magnitude}}">
+            <div class="row custom-row">
+              <div class="col s3 m5 col-data valign-wrapper">
+                <div class="valign">{{earthquake.title}}</div>
+              </div>
+              <div class="col s3 m2 col-data valign-wrapper">
+                <div class="valign">{{earthquake.lat}}</div>
+              </div>
+              <div class="col s3 m2 col-data valign-wrapper">
+                <div class="valign">{{earthquake.long}}</div>
+              </div>
+              <div class="col m3 col-data valign-wrapper">
+                <div class="valign">
+                  <span>{{earthquake.pubDate.toLocaleDateString()}}</span>
+                  <span class="hide-on-large-only"><br></span>
+                  <span class="hide-on-med-and-down">,</span>
+                  <span style="white-space:nowrap">{{earthquake.pubDate.toLocaleTimeString()}}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col s1 valign-wrapper" style="height: 76px">
-        <div class="valign">
-          <a ng-click="deleteEarthquake(earthquake, false)" earthquake-hover-delete="#earthquake-{{$index}}" class="btn-floating btn waves-effect waves-light red earthquake-delete"><i class="material-icons">delete</i></a>
+        <div class="col s1 valign-wrapper" style="height: 76px">
+          <div class="valign">
+            <a ng-click="deleteEarthquake(earthquake, $index)" earthquake-hover-delete="#earthquake-{{$index}}" class="btn-floating btn waves-effect waves-light red earthquake-delete"><i class="material-icons">delete</i></a>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Mobile View -->
-    <div style="margin-top: 50px; overflow: hidden" class="hide-on-med-and-up">
-      <div class="row repeat-animate-mobile"  earthquake-delete-mobile="earthquake.isDeleting" ng-repeat="earthquake in earthquakes.item" >
-        <div class="col s10 offset-s1">
-          <div class="card">
-            <!-- <div class="card-image">
-              <img src="{{earthquake.img}}">
-              <span class="card-title">Card Title</span>
-            </div> -->
-            <div class="card-content">
-              <h5>{{earthquake.title}}</h5>
-              <div class="row">
-                <div class="col s5">
-                  <div>Latitude:</div>
-                  <div>Longitude:</div>
-                  <div>Date:</div>
-                  <div>Time:</div>
+
+      <div class="col s10 offset-s1 hide-on-large-only">
+        <div class="card">
+          <div class="card-content" style="padding-top: 10px; padding-bottom: 10px" earthquake-status-color="{{earthquake.magnitude}}">
+            <h5>{{earthquake.title}}</h5>
+            <div class="row custom-row">
+              <div class="col s5">
+                <div>Latitude:</div>
+                <div>Longitude:</div>
+                <div>Date:</div>
+                <div>Time:</div>
+              </div>
+              <div class="col s7">
+                <div class="right-align">
+                  {{earthquake.lat}}
                 </div>
-                <div class="col s7">
-                  <div class="right-align">
-                    {{earthquake.lat}}
-                  </div>
-                  <div class="right-align">
-                    {{earthquake.long}}
-                  </div>
-                  <div class="right-align">
-                    {{earthquake.pubDate.toLocaleDateString()}}
-                  </div>
-                  <div class="right-align">
-                    {{earthquake.pubDate.toLocaleTimeString()}}
-                  </div>
+                <div class="right-align">
+                  {{earthquake.long}}
+                </div>
+                <div class="right-align">
+                  {{earthquake.pubDate.toLocaleDateString()}}
+                </div>
+                <div class="right-align">
+                  {{earthquake.pubDate.toLocaleTimeString()}}
                 </div>
               </div>
             </div>
-            <div class="card-action" style="height: 75px;">
-              <div class="col s6">
-                <a ng-click="openEarthquake(earthquake)" href="" class="btn teal white-text waves-effect waves-light ">More</a>
-              </div>
-              <div class="col s6">
-                <a ng-click="deleteEarthquake(earthquake, false)" href="" class="btn red white-text waves-effect waves-light ">Delete</a>
-              </div>
+          </div>
+          <div class="card-action" style="height: 56px; padding-top:10px; padding-bottom:10px;">
+            <div class="col s6">
+              <a ng-click="openEarthquake(earthquake)" href="" class="btn teal white-text waves-effect waves-light ">More</a>
+            </div>
+            <div class="col s6 right-align">
+              <a ng-click="deleteEarthquake(earthquake, $index)" href="" style="margin-right: 0" class="btn red white-text waves-effect waves-light ">Delete</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div ng-show="!earthquakes.success" class="">
+    <h1 class="center-align">Could not load earthquakes</h1>
   </div>
 </div>

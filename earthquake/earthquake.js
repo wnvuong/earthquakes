@@ -3,14 +3,12 @@ angular.module('earthquakeApp').controller('EarthquakeController', ['$scope', '$
 function MainController ($scope, $rootScope, $timeout, $window, earthquakeFactory) {
 
   $scope.loadEarthquakes = function() {
-    $scope.earthquakes = { item : [] };
+    $scope.earthquakes = { item : [], success: true };
 
     earthquakeFactory.getEarthquakes().then(function(res) {
-      console.log(res);
-      $scope.earthquakes = res;
-
-      $scope.isLoading = false;
-      $rootScope.$broadcast('loadEarthquakesComplete');
+        $scope.earthquakes = res;
+        $scope.isLoading = false;
+        $rootScope.$broadcast('loadEarthquakesComplete');
     });
   }
 
@@ -18,8 +16,8 @@ function MainController ($scope, $rootScope, $timeout, $window, earthquakeFactor
     $window.open(earthquake.link, '_blank');
   }
 
-  $scope.deleteEarthquake = function(earthquake, delay) {
-    $scope.earthquakes = earthquakeFactory.deleteEarthquake(earthquake, delay);
+  $scope.deleteEarthquake = function(earthquake, index) {
+    earthquakeFactory.deleteEarthquake(earthquake, index);
   }
 
   $scope.$on('loadEarthquakes', function(event, args) {
@@ -32,5 +30,4 @@ function MainController ($scope, $rootScope, $timeout, $window, earthquakeFactor
 
   $scope.loadEarthquakes();
   $scope.isLoading = true;
-
 };

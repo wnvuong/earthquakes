@@ -14,38 +14,29 @@ function EarthquakeFactory ($http, $q, $timeout) {
 
     $http.get(usgsURL).then(function(res) {
       earthquakes = res.data.query.results.rss.channel;
+      earthquakes.success = true;
 
       earthquakes.item.forEach(function(elem, index) {
-        elem.isDeleting = false;
         FormatTitleAndMagnitude(elem);
         FormateDate(elem);
         FormatImg(elem);
       });
 
       deferred.resolve(earthquakes);
+    }, function(res) {
+      res.success = false;
+
+      deferred.resolve(res)
     });
 
     return deferred.promise;
   }
 
-  earthquakeFactory.deleteEarthquake = function(earthquake, delay) {
-    earthquake.isDeleting = true;
-    var timeDelay;
-    if (delay) {
-      timeDelay = 1000;
-    } else {
-      timeDelay = 0;
-    }
-    $timeout(function() {
-      var index = earthquakes.item.indexOf(earthquake);
-      if (index > -1) {
-        earthquakes.item.splice(index, 1);
-      }
-    }, timeDelay);
+  earthquakeFactory.deleteEarthquake = function(earthquake, index) {
+    earthquakes.item.splice(index, 1);
 
     return earthquakes;
   }
-
 
   return earthquakeFactory;
 }

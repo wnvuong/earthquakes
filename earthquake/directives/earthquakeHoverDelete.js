@@ -10,7 +10,6 @@ earthquakeApp.directive('earthquakeHoverDelete', function($timeout) {
           } else {
             element.css('pointer-events', 'none');
             element.css('opacity', 0);
-
           }
         },
         post: function (scope, element, attrs) {
@@ -21,7 +20,7 @@ earthquakeApp.directive('earthquakeHoverDelete', function($timeout) {
             } else {
               $(attrs.earthquakeHoverDelete).addClass('custom-card-panel-desktop');
             }
-            
+
             $(attrs.earthquakeHoverDelete).hover(function() {
               element.css('pointer-events', 'auto');
               element.css('opacity', 1);
